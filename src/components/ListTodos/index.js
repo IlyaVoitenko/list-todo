@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getListTodos } from './selectors';
-import { getTodos, addTodo } from './todoFetch';
+import { getTodos } from './todoFetch';
 import ItemTodo from './ItemTodo';
+import FilterTodo from './FilterTodo';
+import CreateTodo from './CreateTodo';
 
 const ListTodos = () => {
   const dispatch = useDispatch();
-  const [todoTitle, setTodoTitle] = useState('');
   const todos = useSelector(getListTodos);
 
   useEffect(() => {
@@ -15,8 +16,8 @@ const ListTodos = () => {
 
   return (
     <div>
-      <input onChange={({ target }) => setTodoTitle(target.value)}></input>
-      <button onClick={() => addTodo(todoTitle)}>Add todo </button>
+      <CreateTodo />
+      <FilterTodo />;
       {todos.map((todo) => (
         <ItemTodo key={todo.id} todo={todo} />
       ))}

@@ -8,11 +8,19 @@ export function getTodos() {
     });
   };
 }
-
-export function addTodo(title) {
+export function filterTodos(isDone) {
+  return (dispatch) => {
+    return axios
+      .get(`http://localhost:3001/todos?isDone=${isDone}`)
+      .then((todos) => {
+        dispatch(updateTodos(todos.data));
+      });
+  };
+}
+export function addTodo(title, isDone = false) {
   return axios.post(`http://localhost:3001/todos`, {
-    title: `${title}`,
-    isDone: 'false',
+    title: title,
+    isDone: isDone,
   });
 }
 

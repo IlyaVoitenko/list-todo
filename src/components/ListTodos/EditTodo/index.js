@@ -8,6 +8,7 @@ const EditTodo = () => {
   const selectedTodo = useSelector(getStateTodo);
   const { id, title } = selectedTodo;
   const [newValueTodo, setNewValueTodo] = useState(title);
+
   return (
     <div>
       <input
