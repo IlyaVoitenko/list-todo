@@ -1,4 +1,5 @@
-import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import SelectedTodo from './components/ListTodos/SelectedTodo';
 import EditTodo from './components/ListTodos/EditTodo';
 import ListTodos from './components/ListTodos';
@@ -8,16 +9,8 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
-        <ul>
-          <li>
-            <Link to="/todos">Todos</Link>
-          </li>
-          <li>
-            <Link to="/photos">Photos</Link>
-          </li>
-        </ul>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/todos" element={<ListTodos />} />

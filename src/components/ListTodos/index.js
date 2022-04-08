@@ -12,7 +12,7 @@ const ListTodos = () => {
 
   useEffect(() => {
     dispatch(getTodos());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

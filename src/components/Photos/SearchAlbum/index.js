@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { updateListPhotos } from '../../../store/createActions';
 import { useState } from 'react';
+import { InputGroup, FormControl, Button } from 'react-bootstrap';
+import BtnBack from '../../BtnBack';
 
 const SearchAlbum = () => {
   const dispatch = useDispatch();
@@ -24,30 +26,33 @@ const SearchAlbum = () => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="enter number of ablum"
-        onChange={({ target }) => {
-          setIsDisabled(false);
-          setQueryOfAlbum(target.value);
-        }}
-      ></input>
-      {isDisabled ? (
-        <button disabled>Get photos</button>
-      ) : (
-        <button
-          onClick={() => {
-            if (selectedAlbum.toString() === queryOfAlbum.toString()) {
-              setIsDisabled(true);
-            } else {
-              setIsDisabled(false);
-              dispatch(getPhotos(queryOfAlbum));
-            }
+      <InputGroup type="text">
+        <FormControl
+          placeholder="enter number of ablum"
+          onChange={({ target }) => {
+            setIsDisabled(false);
+            setQueryOfAlbum(target.value);
           }}
-        >
-          Get photos
-        </button>
-      )}
+        ></FormControl>
+        {isDisabled ? (
+          <Button disabled>Get photos</Button>
+        ) : (
+          <Button
+            variant="outline-secondary"
+            onClick={() => {
+              if (selectedAlbum.toString() === queryOfAlbum.toString()) {
+                setIsDisabled(true);
+              } else {
+                setIsDisabled(false);
+                dispatch(getPhotos(queryOfAlbum));
+              }
+            }}
+          >
+            Get photos
+          </Button>
+        )}
+        <BtnBack />
+      </InputGroup>
     </div>
   );
 };

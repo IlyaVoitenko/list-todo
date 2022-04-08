@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getTodo } from '../todoFetch';
 import { useDispatch, useSelector } from 'react-redux';
 import { getStateTodo } from './selectors';
+import { Button } from 'react-bootstrap';
 
 const SelectedTodo = () => {
   const { id } = useParams();
@@ -16,9 +17,11 @@ const SelectedTodo = () => {
   const { title } = selectedTodo;
   return (
     <div>
-      <span>{title}</span>
+      <h5>title : {title}</h5>
       <Link to="/edit-todo">
-        <button>edit</button>
+        <Button variant="outline-secondary" className="ms-2">
+          Edit
+        </Button>
       </Link>
     </div>
   );
