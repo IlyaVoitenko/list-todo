@@ -7,10 +7,10 @@ import { Button } from 'react-bootstrap';
 
 const SelectedTodo = () => {
   const { id } = useParams();
-  const dospatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dospatch(getTodo(id));
+    dispatch(getTodo(id));
   }, [id]);
 
   const selectedTodo = useSelector(getStateTodo);

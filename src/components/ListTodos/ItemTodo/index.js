@@ -1,4 +1,4 @@
-import { addTodo, editTodo, deleteTodo } from '../todoFetch';
+import { editTodo, deleteTodo, addTodo } from '../todoFetch';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import style from './ItemTodo.module.css';
@@ -8,11 +8,11 @@ const ItemTodo = ({ todo }) => {
 
   function changeChecked(title, id, isDone) {
     let result = !isDone;
-    if (!result) {
-      return editTodo(id, { title: title, isDone: result });
-    } else {
+    if (result) {
+      deleteTodo(id);
       addTodo(title, true);
-      return deleteTodo(id);
+    } else {
+      editTodo(id, { title: title, isDone: false });
     }
   }
 

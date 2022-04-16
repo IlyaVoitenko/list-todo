@@ -3,39 +3,45 @@ import axios from 'axios';
 
 export function getTodos() {
   return (dispatch) => {
-    return axios.get(`http://localhost:3001/todos`).then((todos) => {
-      return dispatch(updateTodos(todos.data));
-    });
+    return axios
+      .get(`http://localhost:4001/todos`)
+      .then((todos) => dispatch(updateTodos(todos.data)));
   };
 }
 export function filterTodos(isDone) {
   return (dispatch) => {
     return axios
-      .get(`http://localhost:3001/todos?isDone=${isDone}`)
+      .get(`http://localhost:4001/todos?isDone=${isDone}`)
       .then((todos) => {
         dispatch(updateTodos(todos.data));
       });
   };
 }
 export function addTodo(title, isDone = false) {
-  return axios.post(`http://localhost:3001/todos`, {
-    title: title,
-    isDone: isDone,
-  });
+  return axios
+    .post(`http://localhost:4001/todos`, {
+      title: title,
+      isDone: isDone,
+    })
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err.response));
 }
 
 export function deleteTodo(id) {
-  return axios.delete(`http://localhost:3001/todos/${id}`);
+  return axios
+    .delete(`http://localhost:4001/todos/${id}`)
+    .catch((err) => console.log(err));
 }
 
 export function getTodo(id) {
   return (dispatch) => {
-    return axios.get(`http://localhost:3001/todos/${id}`).then((todo) => {
+    return axios.get(`http://localhost:4001/todos/${id}`).then((todo) => {
+      console.log(todo.data);
       return dispatch(getSelectedTodo(todo.data));
     });
   };
 }
 
 export function editTodo(id, newValueTodo) {
-  return axios.put(`http://localhost:3001/todos/${id}`, newValueTodo);
+  return axios.put(`http://localhost:4001/todos/${id}`, newValueTodo);
 }

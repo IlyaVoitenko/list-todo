@@ -6,7 +6,6 @@ import style from './ItemPhoto.module.css';
 const ItemPhoto = ({ info }) => {
   const dispatch = useDispatch();
   const { id, title, url, albumId } = info;
-
   useEffect(() => {
     dispatch(updateSelectedAblum(albumId));
   }, [dispatch, albumId]);
