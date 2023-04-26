@@ -1,7 +1,8 @@
-import { editTodo, deleteTodo, addTodo } from '../todoFetch';
-import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import style from './ItemTodo.module.css';
+import React from "react"; // Добавьте эту строку
+import { editTodo, deleteTodo, addTodo } from "../todoFetch";
+import { Button, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import style from "./ItemTodo.module.css";
 
 const ItemTodo = ({ todo }) => {
   const { title, id, isDone } = todo;

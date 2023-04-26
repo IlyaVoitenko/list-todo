@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { addTodo } from '../todoFetch';
-import { Button, InputGroup, FormControl } from 'react-bootstrap';
-import BtnBack from '../../BtnBack';
+import React from "react";
+import { useState } from "react";
+import { addTodo } from "../todoFetch";
+import { Button, InputGroup, FormControl } from "react-bootstrap";
+import BtnBack from "../../BtnBack";
 
 const CreateTodo = () => {
-  const [todoTitle, setTodoTitle] = useState('');
+  const [todoTitle, setTodoTitle] = useState("");
   return (
     <div className="p-2">
       <InputGroup>

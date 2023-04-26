@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { InputGroup, Button, FormControl } from 'react-bootstrap';
-import { getStateTodo } from '../SelectedTodo/selectors';
-import { editTodo } from '../todoFetch';
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { InputGroup, Button, FormControl } from "react-bootstrap";
+import { getStateTodo } from "../SelectedTodo/selectors";
+import { editTodo } from "../todoFetch";
 
 const EditTodo = () => {
   const selectedTodo = useSelector(getStateTodo);

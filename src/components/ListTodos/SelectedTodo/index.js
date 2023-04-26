@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { getTodo } from '../todoFetch';
-import { useDispatch, useSelector } from 'react-redux';
-import { getStateTodo } from './selectors';
-import { Button } from 'react-bootstrap';
+import React, { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { getTodo } from "../todoFetch";
+import { useDispatch, useSelector } from "react-redux";
+import { getStateTodo } from "./selectors";
+import { Button } from "react-bootstrap";
 
 const SelectedTodo = () => {
   const { id } = useParams();

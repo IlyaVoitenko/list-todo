@@ -1,5 +1,6 @@
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const BtnBack = () => {
   return (
     <Link to="/">

@@ -1,28 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { updateListPhotos } from '../../../store/createActions';
-import { useState } from 'react';
-import { InputGroup, FormControl, Button } from 'react-bootstrap';
-import BtnBack from '../../BtnBack';
+import React, { useState } from "react";
+import { getPhotos } from "../helper";
+import { useDispatch, useSelector } from "react-redux";
+import { InputGroup, FormControl, Button } from "react-bootstrap";
+import BtnBack from "../../BtnBack";
 
 const SearchAlbum = () => {
   const dispatch = useDispatch();
   const [queryOfAlbum, setQueryOfAlbum] = useState(null);
   const selectedAlbum = useSelector((state) => state.selectedAblum);
   const [isDisabled, setIsDisabled] = useState(false);
-  function getPhotos(idAlbum) {
-    return (dispatch) => {
-      return fetch(
-        `https://jsonplaceholder.typicode.com/photos?albumId=${idAlbum}`
-      )
-        .then((data) => data.json())
-        .then((photos) => {
-          dispatch(updateListPhotos(photos));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-  }
 
   return (
     <div>

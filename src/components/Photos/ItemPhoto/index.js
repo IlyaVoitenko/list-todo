@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { updateSelectedAblum } from '../../../store/createActions';
-import style from './ItemPhoto.module.css';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { updateSelectedAblum } from "../../../store/createActions";
+import style from "./ItemPhoto.module.css";
 
 const ItemPhoto = ({ info }) => {
   const dispatch = useDispatch();

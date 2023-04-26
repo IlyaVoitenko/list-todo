@@ -1,11 +1,12 @@
-import { updateTodos, getSelectedTodo } from '../../../store/createActions';
-import axios from 'axios';
+import { updateTodos, getSelectedTodo } from "../../../store/createActions";
+import axios from "axios";
 
 export function getTodos() {
   return (dispatch) => {
     return axios
       .get(`http://localhost:4001/todos`)
-      .then((todos) => dispatch(updateTodos(todos.data)));
+      .then((todos) => dispatch(updateTodos(todos.data)))
+      .catch((err) => console.log("err :", err));
   };
 }
 export function filterTodos(isDone) {

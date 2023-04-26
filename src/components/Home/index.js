@@ -1,4 +1,5 @@
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import React from "react"; // Добавьте эту строку
+import { Container, Navbar, Nav } from "react-bootstrap";
 
 const Home = () => {
   return (
